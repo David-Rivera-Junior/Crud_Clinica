@@ -2,14 +2,13 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Consulta</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Consulta</title>
 
-<!--LINK DE BOOSTRAP---->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!--LINK DE BOOSTRAP---->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 
 <!-- Contenido de la tabla -->
@@ -24,7 +23,7 @@
 		<hr>
 		<!-- Tabla donde estaran los datos -->
 		<table class="table table-striped table-bordered" id="table">
-            <thead class="bg-success">
+			<thead class="bg-success">
 				<tr>
 					<th>Id</th>
 					<th>Fecha</th>
@@ -53,32 +52,31 @@
 
 				<!-- Modal body -->
 				<div class="modal-body">
-
+					<!-- Fecha -->
 					<div class="form-group">
-						<label for="nombre">Fecha:</label> <input id="fecha"
-							class="form-control" name="fecha" type="text">
+						<label for="nombre">Fecha:</label> <input id="fecha" class="form-control" name="fecha"
+							type="text">
 					</div>
-
+					<!-- Sintomas -->
 					<div class="form-group">
 						<label for="sintomas">Sintomas:</label>
 						<textarea class="form-control" name="sintomas" id="sintomas"></textarea>
 					</div>
-
+					<!-- Diagnostico -->
 					<div class="form-group">
 						<label for="diagnostico">Diagnostico: </label>
 						<textarea class="form-control" name="diagnostico" id="diagnostico"></textarea>
 					</div>
-
+					<!-- Doctor -->
 					<div class="form-group">
-						<label for="doctor">Doctor: </label> <select
-							class="form-control" name="idDoctor" id="doctor">
+						<label for="doctor">Doctor: </label> <select class="form-control" name="idDoctor" id="doctor">
 							<option value="" selected>--SELECCIONE UNA OPCION--</option>
 						</select>
 					</div>
 
 					<div class="form-group">
-						<label for="paciente">Paciente: </label> <select
-							class="form-control" name="idPaciente" id="paciente">
+						<label for="paciente">Paciente: </label> <select class="form-control" name="idPaciente"
+							id="paciente">
 							<option value="" selected>--SELECCIONE UNA OPCION--</option>
 						</select>
 					</div>
@@ -87,8 +85,7 @@
 				<!-- Modal footer -->
 				<div class="modal-footer">
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-					<button id="btnguardar" type="button" class="btn btn-primary"
-						data-dismiss="modal">Guardar</button>
+					<button id="btnguardar" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
 				</div>
 
 			</div>
@@ -115,8 +112,7 @@
 				<!-- Modal footer -->
 				<div class="modal-footer">
 					<button type="button" class="btn btn-warning" data-dismiss="modal">No</button>
-					<button id="eliminarConsulta" type="button" class="btn btn-danger"
-						data-dismiss="modal">Si</button>
+					<button id="eliminarConsulta" type="button" class="btn btn-danger" data-dismiss="modal">Si</button>
 				</div>
 
 			</div>
@@ -137,18 +133,17 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 					<div class="form-group">
-						<input readonly="readonly" id="id2" class="form-control"
-							type="hidden">
+						<input readonly="readonly" id="id2" class="form-control" type="hidden">
 					</div>
 
 					<div class="form-group">
-						<label for="nombre">Fecha:</label> <input id="fecha2"
-							class="form-control" type="text" name="fecha">
+						<label for="nombre">Fecha:</label> <input id="fecha2" class="form-control" type="text"
+							name="fecha">
 					</div>
 
 					<div class="form-group">
-						<label for="nombre">Sintomas:</label> <input id="sintomas2"
-							class="form-control" type="text" name="sintomas">
+						<label for="nombre">Sintomas:</label> <input id="sintomas2" class="form-control" type="text"
+							name="sintomas">
 					</div>
 
 					<div class="form-group">
@@ -158,15 +153,13 @@
 
 					<div class="form-group">
 						<label for="doctor">Doctor: </label>
-						<select
-							class="form-control" name="doctor2" id="doctor2">
+						<select class="form-control" name="doctor2" id="doctor2">
 						</select>
 					</div>
 
 					<div class="form-group">
 						<label for="paciente">Paciente: </label>
-						<select
-							class="form-control" name="paciente2" id="paciente2">
+						<select class="form-control" name="paciente2" id="paciente2">
 						</select>
 					</div>
 
@@ -183,10 +176,8 @@
 	</div>
 
 	<!-- SCRIPT -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/consulta.js"></script>
 </body>
