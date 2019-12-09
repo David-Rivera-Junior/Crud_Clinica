@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<crud_ajax>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.personal.crud_ajax.DemoApplication",
+            "projectName": "crud_ajax",
+            "args": ""
+        }
+    ]
+}
