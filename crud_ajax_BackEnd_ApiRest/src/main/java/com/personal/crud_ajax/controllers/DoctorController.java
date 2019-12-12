@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.personal.crud_ajax.models.Doctor;
 import com.personal.crud_ajax.models.Especilidad;
-import com.personal.crud_ajax.repositories.IDoctor;
+//import com.personal.crud_ajax.repositories.IDoctor;
 import com.personal.crud_ajax.services.DoctorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,20 +25,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * DoctorController
  */
 @Controller
-@CrossOrigin
 @RequestMapping("doctores")
 public class DoctorController {
-	
 
     //repositorio para el manejo de datos
     @Autowired
     DoctorService doctorService;
-    
+
+
     //listar registros
     @GetMapping(value="all",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @CrossOrigin
     public List<Doctor> getAllDoctor() {
+
         return (List<Doctor>) doctorService.getAll();
     }
 

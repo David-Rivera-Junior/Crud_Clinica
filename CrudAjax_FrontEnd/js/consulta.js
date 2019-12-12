@@ -1,3 +1,4 @@
+/* Cargar todos los elementos  */
 $(document).ready(inicio);
 function inicio() {
     cargarDatos();
@@ -18,7 +19,7 @@ function cargarDatos() {
         data: null,
         success: function (response) {
             $("#tDatos").html("");
-
+    /* Recorrer los elementos del array y retornar la respuesta de la peticion */
             for (let i = 0; i < response.length; i++) {
                 $("#tDatos").append(
                     "<tr>" +

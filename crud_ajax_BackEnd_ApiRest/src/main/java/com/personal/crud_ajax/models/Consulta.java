@@ -1,11 +1,9 @@
 package com.personal.crud_ajax.models;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -16,44 +14,23 @@ import javax.persistence.ManyToOne;
 public class Consulta {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private Date fecha;
-
-    public Date getFecha() {
-        return this.fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
     
-    private String sintomas;
+    
 
     private String diagnostico;
     
     @ManyToOne(fetch = FetchType.EAGER)
     private Doctor doctor;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Paciente paciente;
-
-    public Paciente getPaciente() {
-        return this.paciente;
-    }
-
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
-
  //CONSTRUCTORES
     public Consulta() {
         super();
     }
-    public Consulta(Date fecha, String sintomas, String diagnostico) {
+    public Consulta(Date fecha, String diagnostico) {
     this.fecha=fecha;
-    this.sintomas=sintomas;
     this.diagnostico=diagnostico;
     }
 
@@ -73,17 +50,19 @@ public class Consulta {
     }
 
     /**
-     * @param sintomas the sintomas to set
+     * @param fecha the fecha to set
      */
-    public void setSintomas(String sintomas) {
-        this.sintomas = sintomas;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
     /**
-     * @return the sintomas
+     * @return the fecha
      */
-    public String getSintomas() {
-        return sintomas;
+    public Date getFecha() {
+        return fecha;
     }
+
+ 
     
     /**
      * @param diagnostico the diagnostico to set
@@ -111,5 +90,4 @@ public class Consulta {
         return doctor;
     }
     
-
 }

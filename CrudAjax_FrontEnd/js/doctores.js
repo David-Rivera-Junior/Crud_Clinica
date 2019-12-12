@@ -42,8 +42,8 @@ function procesarDatosTabla(response) {
                 +""+item.especialidad.especialidad
             +"</td>"
             +"<td>"
-                +"<button onclick='preModificar("+item.id+");' class='btn btn-warning ml-2'>Modificar</button>"
-                +"<button onclick='preEliminar("+item.id+");' class='btn btn-danger ml-2'>Eliminar</button>"
+                +"<button onclick='preModificar("+item.id+");' class='btn btn-warning ml-2'><i class='fas fa-edit'></i> Modificar</button>"
+                +"<button onclick='preEliminar("+item.id+");' class='btn btn-danger ml-2'><i class='fas fa-trash-alt'></i> Eliminar</button>"
             +"</td>"
         +"</tr>"
         +"");

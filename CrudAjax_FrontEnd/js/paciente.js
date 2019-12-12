@@ -34,8 +34,8 @@ function procesarDatosTabla(response) {
             + item.direccion
             + "</td>"
             + "<td>"
-            + "<button onclick='cargarEditar(" + item.id + ");' class='btn btn-warning ml-2' data-toggle='modal' data-target='#editar'>Modificar</button>"
-            + "<button onclick='preEliminar(" + item.id + ");' class='btn btn-danger ml-2' data-toggle='modal' data-target='#eliminar'>Eliminar</button>"
+            + "<button onclick='cargarEditar(" + item.id + ");' class='btn btn-warning ml-2' data-toggle='modal' data-target='#editar'><i class='fas fa-edit'></i> Modificar</button>"
+            + "<button onclick='preEliminar(" + item.id + ");' class='btn btn-danger ml-2' data-toggle='modal' data-target='#eliminar'><i class='fas fa-trash-alt'></i> Eliminar</button>"
             + "</td>"
             + "</tr>");
     });
@@ -45,6 +45,16 @@ function errorPeticion(response) {
     alert("Error al realizar la peticion: " + response);
     console.log("Error al realizar la peticion: " + response);
 }
+
+function success() { 
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Se agrego Correctamente',
+        showConfirmButton: false,
+        timer: 1500
+      })
+ }
 
 //Funcion Guardar
 function guardar() {
@@ -56,6 +66,7 @@ function guardar() {
             direccion: $("#direccion").val()
         },
         success: function(){
+            success();
             cargarDatos();
         },
         error: function(){
@@ -113,4 +124,6 @@ function eliminar() {
         },
         error: errorPeticion
     });
+
+    
   }

@@ -9,7 +9,7 @@ function inicio() {
 
 //cargar datos
 function cargarDatos() {
-    //peticion ajax para soliciytar datos de docctores
+    //peticion ajax para solicitar datos de doctores
     $.ajax({
         url: "http://localhost:8080/especialidades/all",
         method: "Get",
@@ -32,8 +32,8 @@ function procesarDatosTabla(response) {
             + item.especialidad
             + "</td>"
             + "<td>"
-            + "<button onclick='cargarEditar(" + item.id + ");' class='btn btn-warning ml-2' data-toggle='modal' data-target='#editar'>Modificar</button>"
-            + "<button onclick='preEliminar(" + item.id + ");' class='btn btn-danger ml-2' data-toggle='modal' data-target='#eliminar'>Eliminar</button>"
+            + "<button onclick='cargarEditar(" + item.id + ");' class='btn btn-warning ml-2' data-toggle='modal' data-target='#editar'><i class='fas fa-edit'></i> Modificar</button>"
+            + "<button onclick='preEliminar(" + item.id + ");' class='btn btn-danger ml-2' data-toggle='modal' data-target='#eliminar'><i class='fas fa-trash-alt'></i> Eliminar</button>"
             + "</td>"
             + "</tr>");
     });
