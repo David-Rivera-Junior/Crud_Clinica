@@ -1,19 +1,67 @@
-$(document).ready(inicio);
 
+$(document).ready(inicio);
 function inicio() {
    cargarDatos(); 
    cargarEspecialidades();
+   //cargarDoctor();
 
    $("#guardarDoctor").click(guardar);
 
    $("#eliminarDoctor").click(eliminar);
 
    $("#modificarDoctor").click(modificar);
+   
+   
 }
 
-//cargar datos
+/*function cargarDoctor() {
+    $("#tablaDoctor").DataTable({
+        "ajax": {
+            "url": "http://localhost:8080/doctores/getDoctor/",
+            "method": "Get"
+        },
+        "columns": [{
+            "data": "id",
+            "width": "5%"
+        },
+        {
+            "data": "nombre",
+            "width": "30%"
+        },
+        {
+            "data": "direccion",
+            "width": "30%"
+        },
+        {
+            "data": "especialidad",
+            "width": "30%"
+        },
+        {
+            "data": "operacion",
+            "width": "5%"
+        }
+        ],
+        "scrollY": 200,
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ ",
+            "zeroRecords": "Datos no encontrados",
+            "info": "Mostar páginas _PAGE_ de _PAGES_",
+            "infoEmpty": "Datos no encontrados",
+            "infoFiltered": "(Filtrados por _MAX_ total registros)",
+            "search": "Buscar:",
+            "paginate": {
+                "first": "Primero",
+                "last": "Anterior",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        }
+    });
+}
+*/
+// cargar datos
 function cargarDatos() {
-    //peticion ajax para soliciytar datos de docctores
+    // peticion ajax para soliciytar datos de docctores
     $.ajax({
         url:"http://localhost:8080/doctores/all",
         method:"Get",
@@ -23,9 +71,9 @@ function cargarDatos() {
     });
 }
 
-//procesando datos de la peticion
+// procesando datos de la peticion
 function procesarDatosTabla(response) {
-    $("#tDatos").html(""); //reseteando la tabla
+    $("#tDatos").html(""); // reseteando la tabla
     response.forEach(item => {
         $("#tDatos").append(""
         +"<tr>"

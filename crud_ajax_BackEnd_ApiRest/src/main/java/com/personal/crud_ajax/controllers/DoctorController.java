@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.personal.crud_ajax.models.Doctor;
 import com.personal.crud_ajax.models.Especilidad;
-//import com.personal.crud_ajax.repositories.IDoctor;
+import com.personal.crud_ajax.repositories.IDoctor;
 import com.personal.crud_ajax.services.DoctorService;
 
 import org.springframework.beans.factory.annotation.Autowired;

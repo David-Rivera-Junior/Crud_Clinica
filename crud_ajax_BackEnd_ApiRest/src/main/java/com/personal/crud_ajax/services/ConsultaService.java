@@ -23,10 +23,13 @@ public class ConsultaService {
     IDoctor rDoctor;
 
     public List<Consulta> getAll() {
-        return (List<Consulta>) rConsulta.findAll();
-        
+        return (List<Consulta>) rConsulta.findAll();    
     }
 
+    public List<Doctor> getAllDoctor(){
+        return (List<Doctor>) rDoctor.findAll();    
+    }
+    
     public Boolean saveOrUpdate(Consulta entity) {
         
         try {
