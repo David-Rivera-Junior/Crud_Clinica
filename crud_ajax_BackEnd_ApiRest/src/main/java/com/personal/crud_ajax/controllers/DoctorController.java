@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.personal.crud_ajax.models.Doctor;
 import com.personal.crud_ajax.models.Especilidad;
-import com.personal.crud_ajax.repositories.IDoctor;
+//import com.personal.crud_ajax.repositories.IDoctor;
 import com.personal.crud_ajax.services.DoctorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -134,9 +134,9 @@ public class DoctorController {
     public HashMap<String,String> delete(@PathVariable Integer id) {
         HashMap<String,String> jsonReturn=new HashMap<>();
         try {
-            //buscando registro
+            //buscando registro del doctor
             Doctor doctor=doctorService.getDoctor(id);
-            //eliminando registro
+            //eliminando registro de doctor
             doctorService.delete(doctor);
 
             jsonReturn.put("estado", "OK");

@@ -16,6 +16,7 @@ import com.personal.crud_ajax.services.ConsultaService;
 import com.personal.crud_ajax.services.DoctorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -141,17 +142,26 @@ public class ConsultaController {
     // guardar
     @GetMapping(value = "save")
     @ResponseBody
-    public HashMap<String, String> save(@RequestParam Date fecha, @RequestParam String sintomas,
-            @RequestParam String diagnostico, @RequestParam Integer idDoctor) {
+    @CrossOrigin
+    public HashMap<String, String> save(@RequestParam @DateTimeFormat (pattern = "yyyy-MM-dd") Date fecha,
+            @RequestParam String diagnostico,
+            @RequestParam Integer idDoctor,
+            @RequestParam Integer idPaciente) {
 
         HashMap<String, String> jsonReturn = new HashMap<>();
 
         Consulta entity = new Consulta(); // creando objeto
         // asignando datos al objeto
         entity.setFecha(fecha);
-        // entity.setSintomas(sintomas);
+        //entity.setSintomas(sintomas);
         entity.setDiagnostico(diagnostico);
         entity.setDoctor(consultaService.getDoctor(idDoctor));
+        entity.setPaciente(pacienteRepository.findById(idPaciente).get());
+
+        for (DetallesConsulta detallesConsulta : detalles) {
+            detallesConsulta.setConsulta(entity);
+        }
+        entity.setDetallesConsultas(detalles);
         // manejando cualquier excepcion de error
         try {
             consultaService.saveOrUpdate(entity); // guardando registro de doctor
@@ -171,8 +181,11 @@ public class ConsultaController {
     // modificar
     @GetMapping(value = "update/{id}")
     @ResponseBody
-    public HashMap<String, String> update(@RequestParam Integer id, @RequestParam Date fecha,
-            @RequestParam String sintomas, @RequestParam String diagnostico, @RequestParam Integer idDoctor) {
+    public HashMap<String, String> update(@RequestParam Integer id,
+     @RequestParam Date fecha,
+            @RequestParam String sintomas,
+            @RequestParam String diagnostico,
+            @RequestParam Integer idDoctor) {
 
         HashMap<String, String> jsonReturn = new HashMap<>();
 

@@ -1,11 +1,16 @@
 package com.personal.crud_ajax.models;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  * Consulta
@@ -14,16 +19,21 @@ import javax.persistence.ManyToOne;
 public class Consulta {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private Date fecha;
-    
-    
 
     private String diagnostico;
     
     @ManyToOne(fetch = FetchType.EAGER)
     private Doctor doctor;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Paciente paciente;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "consulta",cascade = CascadeType.ALL)
+    private List<DetallesConsulta> detallesConsultas;
 
  //CONSTRUCTORES
     public Consulta() {
@@ -35,6 +45,30 @@ public class Consulta {
     }
 
     //SETTER Y GETTER
+    /**
+     * @param detallesConsultas the detallesConsultas to set
+     */
+    public void setDetallesConsultas(List<DetallesConsulta> detallesConsultas) {
+        this.detallesConsultas = detallesConsultas;
+    }
+    /**
+     * @return the detallesConsultas
+     */
+    public List<DetallesConsulta> getDetallesConsultas() {
+        return detallesConsultas;
+    }
+    /**
+     * @param paciente the paciente to set
+     */
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+    /**
+     * @return the paciente
+     */
+    public Paciente getPaciente() {
+        return paciente;
+    }
 
     /**
      * @param id the id to set
