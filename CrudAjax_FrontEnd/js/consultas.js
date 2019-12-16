@@ -7,6 +7,7 @@ $(document).ready(function () {
     resetDetalles();
     cargarPacientes();
     cargarDoctores();
+
     $("#agregarDetalle").click(agregarDetalle);
 
     /*---------Boton de agregar paciente en la tabla---------------*/
@@ -20,7 +21,7 @@ $(document).ready(function () {
         agregarDoctor($(this).parent().parent().children('td:eq(0)').text(), $(this).parent().parent().children('td:eq(1)').text());
     });
 
-    $("body").on('click', '#guardarDetalle', guardarConsulta);
+    $("body").on('click', '#guardar', guardarConsulta);
 });
 
 /* -------------Funcion Para Cargar Doctores en la Tabla------------ */
@@ -196,7 +197,7 @@ function guardarConsulta() {
         },
         success: function (response) {
             alert(response.mensaje);
-           // location.reload();
+            location.reload();
         },
         error: errorPeticion
     });

@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  * ConsultaController
  */
 @Controller
+@CrossOrigin
 @RequestMapping("consultas")
 public class ConsultaController {
 
@@ -140,7 +141,7 @@ public class ConsultaController {
     }
 
     // guardar
-    @GetMapping(value = "save")
+    @PostMapping(value = "save")
     @ResponseBody
     @CrossOrigin
     public HashMap<String, String> save(@RequestParam @DateTimeFormat (pattern = "yyyy-MM-dd") Date fecha,
